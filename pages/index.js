@@ -20,6 +20,9 @@ export default function Home() {
             Get started by editing&nbsp;
             <code className={styles.code}>pages/index.js</code>
           </p>
+          <p>
+            This is a test
+          </p>
           <div>
             <a
               href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
