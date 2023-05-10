@@ -1,13 +1,13 @@
-// import React, { Component } from 'react'
-// import { Button } from 'react-bootstrap'
-// import { h1 } from 'react-bootstrap'
-// import styles from '../../styles/home.module.css'
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import Cookies from 'js-cookie'
-// import { useEffect } from "react";
-// import { serialize } from 'cookie'
-// import { withPageAuthRequired } from '@auth0/nextjs-auth0'
-// import { useUser } from '@auth0/nextjs-auth0/client';
+import React, { Component } from 'react'
+import { Button } from 'react-bootstrap'
+import { h1 } from 'react-bootstrap'
+import styles from '../../styles/home.module.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Cookies from 'js-cookie'
+import { useEffect } from "react";
+import { serialize } from 'cookie'
+import { withPageAuthRequired } from '@auth0/nextjs-auth0'
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 // export async function getServerSideProps(context) {
 
@@ -78,37 +78,37 @@
 //     return { props: { user, userData }}; 
 //   }
 
-// function home({ user, dataUserData }) {
+function home({ }) {
 //   const { authUser, error, isLoading } = useUser();
 //     const isPremium = false;
 
-//     useEffect(() => {
-//       console.log(authUser);
-//     }, [])
+    // useEffect(() => {
+    // //   console.log(authUser);
+    // }, [])
     
 
-//       return (
-//    <div className={styles.navbar}>
-//       <div class="row">
-//         <div class="col-sm">
-//           <p class="h1">Playlist</p>
-//         </div>
-//         <div class="col-sm">
+      return (
+   <div className={styles.navbar}>
+      {/* <div class="row">
+        <div class="col-sm">
+          <p class="h1">Playlist</p>
+        </div>
+        <div class="col-sm">
 
-//           { isPremium ? (<div class="list-group">
-//               <a href="#" class="list-group-item list-group-item-action active">
-//               Song #1
-//               </a>
-//               <a href="#" class="list-group-item list-group-item-action">Song #2</a>
-//               <a href="#" class="list-group-item list-group-item-action">Song #3</a>
-//               <a href="#" class="list-group-item list-group-item-action">Song #4</a>
-//               <a href="#" class="list-group-item list-group-item-action">Song #5</a>
-//           </div>) : (<p class="h2">No Access</p>)}
-//         </div>
-//       </div>
+          { isPremium ? (<div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action active">
+              Song #1
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">Song #2</a>
+              <a href="#" class="list-group-item list-group-item-action">Song #3</a>
+              <a href="#" class="list-group-item list-group-item-action">Song #4</a>
+              <a href="#" class="list-group-item list-group-item-action">Song #5</a>
+          </div>) : (<p class="h2">No Access</p>)}
+        </div>
+      </div> */}
     
-//    </div>  
-//   )
-// }
+   </div>  
+  )
+}
 
-// export default home
+export default home
