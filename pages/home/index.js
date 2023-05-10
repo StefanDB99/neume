@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
-import { Button } from 'react-bootstrap'
-import { h1 } from 'react-bootstrap'
-import styles from '../../styles/home.module.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Cookies from 'js-cookie'
-import { useEffect } from "react";
-import { serialize } from 'cookie'
-import { withPageAuthRequired } from '@auth0/nextjs-auth0'
-import { useUser } from '@auth0/nextjs-auth0/client';
+// import React, { Component } from 'react'
+// import { Button } from 'react-bootstrap'
+// import { h1 } from 'react-bootstrap'
+// // import styles from '../../styles/home.module.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
+// import Cookies from 'js-cookie'
+// import { useEffect } from "react";
+// import { serialize } from 'cookie'
+// import { withPageAuthRequired } from '@auth0/nextjs-auth0'
+// import { useUser } from '@auth0/nextjs-auth0/client';
 
 // export async function getServerSideProps(context) {
 
@@ -88,7 +88,7 @@ function home({ }) {
     
 
       return (
-   <div className={styles.navbar}>
+   <div>
       {/* <div class="row">
         <div class="col-sm">
           <p class="h1">Playlist</p>
