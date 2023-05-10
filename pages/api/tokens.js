@@ -9,8 +9,6 @@ export default async function handler(req, res) {
         redirect_uri: 'http://localhost:3000/'
     };
 
-    console.log(req.body.user_code);
-
   const data = await fetch('https://neume.eu.auth0.com/oauth/token', {
     method: 'POST',
     headers: {
@@ -20,8 +18,6 @@ export default async function handler(req, res) {
   });
 
   const products = await data.json()
-
-  console.log(products)
 
   res.status(200).json(products);
 }

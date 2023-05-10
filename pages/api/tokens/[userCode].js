@@ -1,7 +1,5 @@
 export default async function handler(req, res) {
 
-        console.log(req.query.userCode);
-    
       const data = await fetch(`https://neume.eu.auth0.com/oauth/token`, {
         method: 'POST',
         headers: {

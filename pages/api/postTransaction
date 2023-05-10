@@ -1,0 +1,23 @@
+export default async function handler(req, res) {
+
+  console.log(req.body.access_token)
+  const data = await fetch('https://20.4.165.91/neume-billing-service/api/Transaction', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${req.body.access_token}`,
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: {
+                "id": 12784212312,
+                "date": "2023-04-20T10:18:37.476Z",
+                "paymentMethod": "Paypal",
+                "status": "Pending",
+                "customerID": user.sub,
+                "description": "Neume+ subscription"
+            }
+        });
+
+  const trans = await data.json()
+
+  res.status(200).json(trans);
+}
