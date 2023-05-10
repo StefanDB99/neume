@@ -1,6 +1,7 @@
 import { useUser } from '@auth0/nextjs-auth0/client'
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import React from 'react'
+import Image from 'next/image';
 
 function Center({ userData, accessToken }) {
 
@@ -13,7 +14,7 @@ function Center({ userData, accessToken }) {
                 {
                     (user &&
                         <div className="flex items-center bg-black space-x-3 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-1 pr-2">
-                            <img className="rounded-full w-10 h-10" src={user.picture} alt="" />
+                            <Image className="rounded-full w-10 h-10" src={user.picture} alt="" />
                             <h5>{user.name}</h5>
                             <ChevronDownIcon className="h-5 w-5" />
                         </div>

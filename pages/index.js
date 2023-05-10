@@ -27,7 +27,7 @@ function Home({ accessToken }) {
 
       console.log(userData)
     }
-  }, [])
+  }, [accessToken, user, userData]) //TODO: Check if works as expected
 
   return (
   <div className="bg-black h-screen overflow-hidden">

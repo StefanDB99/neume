@@ -25,13 +25,13 @@ function Sidebar() {
                 
                 <button className="flex items-center space-x-2 hover:text-white">
                     <CreditCardIcon className='h-5 w-5'/>
-                    <a href='/Subscribe' className='no-underline text-inherit hover:text-white'><p className="mb-0">Get Neume+</p></a>
+                    <Link href='/Subscribe' className='no-underline text-inherit hover:text-white'><p className="mb-0">Get Neume+</p></Link>
                 </button> 
                 
                 
                 <button className="flex items-center space-x-2 hover:text-white">
                     <HomeIcon className='h-5 w-5'/>
-                    <a href='/' className='no-underline text-inherit hover:text-white'><p className="mb-0">Home</p></a>
+                    <Link href='/' className='no-underline text-inherit hover:text-white'><p className="mb-0">Home</p></Link>
                 </button>
                 
                 <button className="flex items-center space-x-2 hover:text-white">
