@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Start the server
-        run: next start 
+        run: npm run dev
       - name: Checkout
         uses: actions/checkout@v3
       # Install npm dependencies, cache them correctly
