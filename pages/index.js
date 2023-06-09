@@ -1,56 +1,58 @@
-import Head from 'next/head'
+
 import { useUser } from '@auth0/nextjs-auth0/client'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import React, { useEffect } from "react";
-import { getAccessToken } from '@auth0/nextjs-auth0'
-import { useRouter } from 'next/router'
-import Cookies from 'js-cookie'
+import React, { useEffect, useState } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Sidebar from '@/components/Sidebar';
+import { useRouter } from 'next/router';
+import { getAccessToken, withPageAuthRequired } from '@auth0/nextjs-auth0';
+import Center from '@/components/Center';
+import { serialize } from 'cookie'
 
-const inter = Inter({ subsets: ['latin'] })
+function Home({ accessToken }) {
 
-const Home = ({ products }) => {
-
-  const router = useRouter();
-
-  useEffect(() => {
-
-    Cookies.set('user_code', router.query.code);
-
-    const data = { user_code: Cookies.get('user_code')};
-  
-    if (!Cookies.get('user_access_token')) {
-      fetch('api/tokens', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-      .then(response => response.json())
-      .then((data) => {
-        Cookies.set('user_access_token', data.access_token);
-      })
-
-    }
-    
-      
-  
-  });
-
-  
+  const { user, error, isLoading } = useUser();
+  const [userData, setUserData] = useState();
 
   return (
-    <>
-      <h1>Welcome</h1>
-      <a href='/api/auth/logout'>Logout</a>
-      <a href={`https://neume.eu.auth0.com/authorize?response_type=code&client_id=Uu2hAFUBPQ37sD8F3P8ZHRfbfk2GyI35&redirect_uri=http://localhost:3000/&audience=https://neume.eu.auth0.com/api/v2/`}>Login</a>
-    </>
-  )
-  
+  <div className="bg-black h-screen overflow-hidden">
+    
+    <main className="flex">
+      <Sidebar />
+      <Center userData={userData} accessToken={accessToken}/>
+    </main>
 
-  
+    <div>
+      {/* cypress testing purposes NOT PRODUCTION
+      <h1 className='invisible' id='token'>{accessToken}</h1>  */}
+    </div>
+  </div>
+  )
 }
+
+export const getServerSideProps = withPageAuthRequired({
+    async getServerSideProps(ctx) {
+        const { accessToken } = await getAccessToken(ctx.req, ctx.res)
+  
+        const serializedUserCookie = serialize('userToken', accessToken, {
+          httpOnly: false,
+          secure: true,
+          maxAge: 60 * 60 * 24 * 7, // 1 week
+          path: '/',
+          });
+
+        ctx.res.setHeader('Set-Cookie', [serializedUserCookie]);
+
+        // const getUserData = { userid: userData.sub};
+        // const res = await fetch('http://localhost:3000/api/getUserData', {
+        //   method: 'POST',
+        //   headers: {
+        //       'Content-Type': 'application/json'
+        //   },
+        //   body: JSON.stringify(getUserData)
+        // })
+
+        return { props: { accessToken }}; 
+    },
+  })
 
 export default Home
