@@ -5,7 +5,7 @@ describe('Button click and API requests', () => {
 
     cy.visit('http://localhost:3000/Subscribe');
 
-
+ 
     // Make request to create transaction
     cy.request({
       method: 'POST',
