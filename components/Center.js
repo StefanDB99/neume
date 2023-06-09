@@ -14,7 +14,7 @@ function Center({ userData, accessToken }) {
                 {
                     (user &&
                         <div className="flex items-center bg-black space-x-3 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-1 pr-2">
-                            <Image className="rounded-full w-10 h-10" src={user.picture} alt="" />
+                            <img className="rounded-full w-10 h-10" src={user.picture} alt="" />
                             <h5>{user.name}</h5>
                             <ChevronDownIcon className="h-5 w-5" />
                         </div>

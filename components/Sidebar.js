@@ -40,13 +40,13 @@ function Sidebar() {
                 </button>    
                 <button className="flex items-center space-x-2 hover:text-white">
                     <BuildingLibraryIcon className='h-5 w-5'/>
-                    <p className="mb-0">My Music</p>
+                    <Link href='my-music' className='no-underline text-inherit hover:text-white'><p className="mb-0">My Music</p></Link>
                 </button> 
                 <hr className="border-t-[0.1px] border-gray-900"/>
 
                 <button className="flex items-center space-x-2 hover:text-white">
                     <PlusCircleIcon className='h-5 w-5'/>
-                    <p className="mb-0">Create Playlist</p>
+                   <Link href='podcasts' className='no-underline text-inherit hover:text-white'><p className="mb-0">My Podcasts</p></Link>
                 </button>       
                 <button className="flex items-center space-x-2 hover:text-white">
                     <HeartIcon className='h-5 w-5'/>

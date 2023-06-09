@@ -13,22 +13,6 @@ function Home({ accessToken }) {
   const { user, error, isLoading } = useUser();
   const [userData, setUserData] = useState();
 
-  useEffect(() => {
-    if(user) {
-      const getUserData = { userid: user.sub, access_token: accessToken};
-      const res = fetch('http://localhost:3000/api/getUserData', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(getUserData)
-      }).then(response => response.json())
-      .then(data => setUserData(data));
-
-      console.log(userData)
-    }
-  }, [accessToken, user, userData]) //TODO: Check if works as expected
-
   return (
   <div className="bg-black h-screen overflow-hidden">
     
@@ -38,24 +22,10 @@ function Home({ accessToken }) {
     </main>
 
     <div>
-      {/* player */}
+      {/* cypress testing purposes NOT PRODUCTION
+      <h1 className='invisible' id='token'>{accessToken}</h1>  */}
     </div>
   </div>
-
-  // Old code!!
-  
-    // <div className={styles.div_login}>
-    //   <h1>Welcome</h1>
-    //   <button type="button" class="btn btn-primary">
-    //   <a className={styles.a_login} href={`https://neume.eu.auth0.com/authorize?response_type=code&client_id=Uu2hAFUBPQ37sD8F3P8ZHRfbfk2GyI35&redirect_uri=http://localhost:3000/home&audience=https://neume/api&scope=openid%20profile%20email%20read:user`}>Login</a>
-    // <a className={styles.a_login} href={`https://neume.eu.auth0.com/authorize?response_type=code&client_id=Uu2hAFUBPQ37sD8F3P8ZHRfbfk2GyI35&redirect_uri=http://localhost:3000&audience=https://neume/api&scope=openid%20profile%20email%20read:user`}>Login</a>
-    //   </button>
-
-    //   <a href='/api/auth/logout'>Logout</a>
-
-      
-      
-    // </div>
   )
 }
 
